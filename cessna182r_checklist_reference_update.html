@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="C182R Checklist" />
+<meta name="theme-color" content="#071019" />
+<title>Cessna 182R Checklist</title>
+<style>
+:root{--bg:#05080c;--panel:#0d1722;--panel2:#142334;--line:#26384b;--text:#f8fafc;--muted:#94a3b8;--blue:#38bdf8;--bluebg:#082f49;--green:#22c55e;--greenbg:#052e16;--amber:#f59e0b;--red:#ef4444;--shadow:0 14px 38px rgba(0,0,0,.35)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{min-height:100%;background:var(--bg)}
+body{margin:0;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(circle at 100% 0,rgba(56,189,248,.13),transparent 34%),linear-gradient(180deg,#05080c,#071019);padding:max(env(safe-area-inset-top),0px) max(12px,env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 92px) max(12px,env(safe-area-inset-left));user-select:none;-webkit-user-select:none;overscroll-behavior-y:contain}
+body.cockpit{padding:max(env(safe-area-inset-top),8px) 12px calc(env(safe-area-inset-bottom) + 12px);overflow:hidden}
+button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}.hidden{display:none!important}
+header{position:sticky;top:0;z-index:20;margin:0 -12px;padding:12px 12px 9px;background:linear-gradient(180deg,rgba(5,8,12,.98) 82%,rgba(5,8,12,.78) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.wrap{max-width:900px;margin:0 auto}.top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.title{font-weight:950;font-size:24px;line-height:1.03;letter-spacing:.2px}.sub{margin-top:5px;color:var(--muted);font-size:12px;line-height:1.28;max-width:74vw}.pct{font-weight:950;font-size:21px;color:var(--green);white-space:nowrap;text-align:right}.pct small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.progress{height:8px;background:#020617;border:1px solid var(--line);border-radius:99px;overflow:hidden;margin-top:9px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));transition:.18s width}
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:10px 0 2px}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;min-height:37px;padding:8px 12px;border-radius:999px;background:rgba(13,23,34,.95);border:1px solid var(--line);font-size:13px;font-weight:850;white-space:nowrap}.tab.active{border-color:var(--blue);background:var(--bluebg)}.tab.done{border-color:rgba(34,197,94,.55)}
+.modebar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;padding-top:8px}.mode{min-height:42px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);font-weight:850;font-size:13px}.mode.active{background:var(--bluebg);border-color:var(--blue)}
+main{max-width:900px;margin:12px auto 0}.sectionhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-end;margin:4px 2px 10px}.sectionname{font-size:22px;font-weight:950}.sectionhelp{color:var(--muted);font-size:12px;text-align:right;max-width:48%}
+.row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(110px,.85fr) 34px;gap:9px;align-items:center;padding:13px 12px;margin:8px 0;border-radius:16px;background:rgba(13,23,34,.93);border:1px solid var(--line);box-shadow:0 4px 15px rgba(0,0,0,.10)}.row:active{transform:scale(.994)}.row.checked{background:rgba(5,46,22,.66);border-color:rgba(34,197,94,.58)}
+.row.completing{animation:checkFade .28s ease both}.row.completing .tick{animation:tickPop .28s ease both}
+@keyframes checkFade{0%{opacity:1;transform:scale(1)}45%{opacity:.58;transform:scale(.988);background:rgba(34,197,94,.28)}100%{opacity:1;transform:scale(1)}}
+@keyframes tickPop{0%{transform:scale(.7)}55%{transform:scale(1.18)}100%{transform:scale(1)}}.label{font-size:17px;font-weight:850;line-height:1.12}.value{font-size:16px;font-weight:850;line-height:1.16;color:#dbeafe;text-align:right}.tick{width:28px;height:28px;border-radius:50%;border:2px solid #52677e;display:grid;place-items:center;font-weight:950;color:transparent}.checked .tick{background:var(--green);border-color:var(--green);color:#052e16}.row.note{grid-template-columns:1fr 34px;background:rgba(69,26,3,.45);border-color:rgba(245,158,11,.55)}.row.note .label{color:#fde68a}.row.note .value{display:none}
+.mnemonic{margin:14px 0;padding:14px 15px;border-radius:16px;border:1px solid rgba(56,189,248,.4);background:rgba(8,47,73,.55)}.mnemonic b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--blue);margin-bottom:5px}.mnemonic span{font-size:16px;font-weight:800;line-height:1.25}
+.refgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:rgba(13,23,34,.93);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 6px 18px rgba(0,0,0,.14)}.card.wide{grid-column:1/-1}.kicker{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.8px;font-weight:900}.big{font-size:32px;font-weight:950;margin-top:3px;line-height:1}.unit{font-size:13px;color:#bae6fd;font-weight:850}.detail{font-size:13px;color:#cbd5e1;margin-top:7px;line-height:1.3}.refrow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line)}.refrow:first-of-type{border-top:0}.refrow span:first-child{font-weight:800}.refrow span:last-child{text-align:right;color:#dbeafe;font-weight:850}.warning{margin-top:12px;padding:12px 14px;border-radius:14px;border:1px solid rgba(245,158,11,.48);background:rgba(69,26,3,.43);color:#fde68a;font-size:12px;line-height:1.35}
+.bottom{position:fixed;z-index:15;left:0;right:0;bottom:0;padding:9px max(12px,env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 9px) max(12px,env(safe-area-inset-left));background:rgba(5,8,12,.94);border-top:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}.bottomin{max-width:900px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}.navbtn{min-height:47px;border-radius:13px;background:var(--panel2);border:1px solid var(--line);font-weight:900}.primary{background:var(--bluebg);border-color:rgba(56,189,248,.6)}
+.cscreen{height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 22px);max-width:900px;margin:auto;display:flex;flex-direction:column;gap:10px}.ctop{display:grid;grid-template-columns:auto 1fr auto;gap:9px;align-items:center}.exit{min-height:34px;padding:6px 11px;border-radius:999px;background:#111827;border:1px solid var(--line);color:#cbd5e1;font-size:12px;font-weight:850}.cphase{text-align:center;color:#bae6fd;font-size:13px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ccount{font-size:12px;color:var(--muted);font-weight:850}.cprog{height:8px;border:1px solid var(--line);background:#020617;border-radius:99px;overflow:hidden}.cbar{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));width:0}.ccard{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:20px;border-radius:26px;background:rgba(13,23,34,.86);border:1px solid var(--line);box-shadow:var(--shadow)}.ctitle{font-size:clamp(34px,10vw,72px);font-weight:950;line-height:1.02;overflow-wrap:anywhere}.cvalue{margin-top:22px;min-height:110px;border-radius:22px;background:var(--bluebg);border:2px solid var(--blue);display:grid;place-items:center;padding:15px;font-size:clamp(28px,8vw,56px);font-weight:950;line-height:1.05}
+.cvalue.completing{animation:cockpitCheck .3s ease both}
+@keyframes cockpitCheck{0%{opacity:1;transform:scale(1)}45%{opacity:.55;transform:scale(.97);background:var(--greenbg);border-color:var(--green)}100%{opacity:1;transform:scale(1)}}.cnav{display:grid;grid-template-columns:1fr 1fr;gap:8px}.cnav button{min-height:50px;border-radius:13px;background:var(--panel2);border:1px solid var(--line);font-weight:900}
+.install{display:none;position:fixed;z-index:100;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:calc(env(safe-area-inset-bottom) + 14px);padding:13px 14px;border-radius:16px;background:rgba(8,47,73,.97);border:1px solid rgba(56,189,248,.45);box-shadow:var(--shadow);grid-template-columns:1fr auto;gap:10px;align-items:center}.install.show{display:grid}.install strong{font-size:14px}.install div div{font-size:12px;color:#cbd5e1;margin-top:3px}.install button{min-height:35px;padding:6px 10px;border-radius:999px;background:#0f172a;border:1px solid #475569;font-weight:850}
+@media(max-width:440px){.title{font-size:21px}.row{grid-template-columns:minmax(0,1.08fr) minmax(96px,.92fr) 30px;padding:12px 10px}.label{font-size:16px}.value{font-size:15px}.refgrid{grid-template-columns:1fr 1fr}.big{font-size:29px}.mode{font-size:12px;padding:0 4px}}
+.scanheading{margin:18px 6px 8px;padding:8px 2px 6px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+@media(max-width:360px){.modebar{grid-template-columns:1fr 1fr}.mode:nth-child(3){grid-column:1/-1}.row{grid-template-columns:1fr 30px}.value{grid-column:1/-1;grid-row:2;text-align:left;padding-left:0}.tick{grid-column:2;grid-row:1/3}.sub{max-width:70vw}}
+
+.clearall{
+  border-color:#b42318!important;
+  color:#b42318!important;
+}
+.clearall:active{transform:scale(.97);}
+
+
+.vsymbol{font-weight:800;white-space:nowrap}
+.vsymbol .vbase{font-size:1em}
+.vsymbol sub{font-size:.62em;line-height:0;vertical-align:-.28em;text-transform:none}
+.ldchart{grid-column:1 / -1;padding:16px 14px 14px}
+.ldchart-title{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.ldchart-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:end}
+.ldcol{text-align:center}
+.ldspeed{font-size:25px;font-weight:800;line-height:1}
+.ldunit{font-size:11px;color:var(--muted);margin-top:2px}
+.ldbar{height:10px;border-radius:999px;margin:9px 0 7px;border:1px solid rgba(0,0,0,.08)}
+.ldbar.low{background:#b9d9c2}
+.ldbar.mid{background:#d9d3aa}
+.ldbar.high{background:#e2b9ad}
+.ldweight{font-size:12px;font-weight:700}
+.ldaxis{display:flex;justify-content:space-between;align-items:center;margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+.ldaxis .arrow{font-size:16px;letter-spacing:.05em}
+.fuelcalc{grid-column:1 / -1;padding:16px 14px}
+.fuelcalc-title{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.fuelgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fuelfield label{display:block;font-size:11px;color:var(--muted);margin:0 0 5px 2px}
+.fuelfield input{width:100%;box-sizing:border-box;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px;padding:12px 10px;font-size:18px;font-weight:750;outline:none}
+.fuelresult{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fuelstat{background:rgba(127,127,127,.08);border-radius:12px;padding:11px 10px}
+.fuelstat .small{font-size:11px;color:var(--muted)}
+.fuelstat .num{font-size:21px;font-weight:800;margin-top:2px}
+.fuelcompare{margin-top:8px;font-size:12px;color:var(--muted)}
+@media(max-width:420px){
+  .ldchart{grid-column:span 2}
+  .fuelcalc{grid-column:span 2}
+}
+
+</style>
+</head>
+<body><button id="clearAllBtn" class="modebtn clearall">Clear All</button>
+<header id="header"><div class="wrap">
+  <div class="top"><div><div class="title">✈️ Cessna 182R Skylane</div><div class="sub">Checklist & quick reference — transcribed from your notes. Training aid only; verify against the current aircraft POH, placards and instructor procedures.</div></div><div class="pct"><span id="pct">0%</span><small id="count">0 / 0</small></div></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="modebar"><button class="mode active" id="listBtn">Checklist</button><button class="mode" id="cockpitBtn">Cockpit Mode</button><button class="mode" id="refBtn">Reference</button></div>
+</div></header>
+<main id="main"></main>
+<div class="bottom" id="bottom"><div class="bottomin"><button class="navbtn" id="prevBtn">← Previous</button><button class="navbtn primary" id="nextBtn">Next →</button></div></div>
+<div class="install" id="install"><div><strong>Use like an app on iPhone</strong><div>In Safari tap Share → Add to Home Screen.</div></div><button id="dismissInstall">Got it</button></div>
+<script>
+const checklistSections=[
+{name:"Before Start",help:"Before Start Scan and Start Procedure.",items:[
+["Visual Scan","Downwards over radios","heading"],
+["Lower Pedestal Scan","","heading"],
+["Cowl Flaps","Open"],
+["Fuel Selector","Both"],
+["Right to Left","","heading"],
+["Flaps","Up"],
+["Mixture","Rich"],
+["Propeller","Fine"],
+["Throttle","1/4 inch"],
+["Carb Heat","Cold"],
+["Lights","Nav and Beacon"],
+["Circuit Breakers","In"],
+["Mags","Both"],
+["Master","On"],
+["Fuel / Primer","If cold: 2–3; none if warm. Make sure locked"],
+["To Start","","heading"],
+["Clear Prop","Call “CLEAR PROP”"],
+["Hands / Brakes","One hand on mags and throttle; guard brakes with feet"],
+["Engine","Start"],
+["Idle","1000 RPM"],
+["Oil Pressure","Check"],
+["Avionics Master","On"],["CHT","200°F"]]},
+{name:"Engine Run Up",help:"Before takeoff — engine run-up checks.",items:[
+["Aircraft","Park into wind"],["Park Brake","Set"],["Propeller Area","Make sure propeller is not over loose stones"],["Behind","Area clear"],["","","separator"],["T's and P's","Check"],["Throttle","1700 RPM"],["Carb Heat","Cycle"],["Propeller","Cycle three times — only 100–150 RPM drop"],["Mag Checks","Left → Both, then Right → Both. Max 125 RPM drop; max 50 RPM difference"],["Lights / Ammeter","Strobe, Taxi and Landing lights ON; check ammeter; switch lights OFF again"],["Suction","Check"],["Throttle","Smoothly back to idle; check slow idle"],["RPM","Set 1000 RPM"]]},
+{name:"Pre-Takeoff",help:"DVAs — decisive vital actions before takeoff.",items:[
+["Trims","Both elevator AND rudder"],["Throttle","Friction nut firm"],["Mixture","Forward (Rich)"],["Propeller","Forward (Full Fine)"],["Carb Heat","Forward (Cold)"],["Fuel","Contents, selector, primer"],["Flaps","Wing flaps set; cowl flaps open"],["Ignition","Both"],["Instruments","Set — altimeter, DI, heading bug, artificial horizon"],["Hatches","Closed (including windows)"],["Harness","Done up"],["Controls","Full & free movement, correct sense"],["Lookout","Search the sky for other traffic"],["Emergency Briefing","Engine failure after takeoff","note"]]},
+{name:"Downwind",help:"Pre-landing checks.",items:[["Brakes","Hand brake off; foot pressure checked"],["Undercarriage","Down"],["Mixture","Full Rich"],["Carb Heat","Cold"],["Fuel","Contents, selector, primer"],["Hatches & Harness","Secure"]]},
+{name:"Short Final",help:"Final configuration check.",items:[["Carb Heat","Forward (Cold)"],["Propeller","Forward (Fine)"],["Cowl Flap","Open — lever up"]]},
+{name:"After Landing",help:"When clear of runway.",items:[["Wing Flaps","Up"],["Cowl Flaps","Open — up position"],["Carb Heat","Cold"],["Landing, Taxi & Strobe Lights","OFF"],["Transponder","STBY"]]},
+{name:"Shutdown",help:"Shutdown procedure.",items:[["Park Brake","Set"],["Throttle","1000 RPM"],["Avionics Master","OFF"],["Magneto","Dead-cut check"],["Mixture","Cut OFF — push button & pull straight back"],["When Prop Stops","Beacon OFF; Nav lights OFF"],["Mags","OFF"],["Master Switch","OFF"]]}
+];
+const references={
+ speeds:{title:"V-Speeds",cards:[
+  {k:"Vx",v:"70",u:"KIAS",d:"Best angle of climb"},{k:"Vy",v:"80",u:"KIAS",d:"Best rate of climb"},{k:"Vs clean",v:"56",u:"KIAS",d:"Clean stall speed"},{k:"Vs full flap",v:"50",u:"KIAS",d:"Full-flap stall speed"},{k:"Vno",v:"143",u:"KIAS",d:"Maximum structural cruising speed"},{k:"Vne",v:"179",u:"KIAS",d:"Never exceed speed"}
+ ],rows:[
+  ["Max flap extension (0°–10°)","140 KIAS"],["Max flap extension (10°–20°)","120 KIAS"],["Max flap extension (20°–40°)","95 KIAS"],["Va","88–110 KIAS depending on weight (2000–2950 lb / ~910–1338 kg)"],["Normal climb out","90 KIAS — 23\" / 2400 RPM"],["Normal landing approach","Flaps 40°: 65 KIAS; 60 KIAS over fence"],["Abnormal landing approach","Flaps 0°: 75 KIAS to touchdown"]]},
+ perf:{title:"Fuel & Performance",cards:[
+  {k:"Fuel max",v:"346",u:"L",d:"92 US gal"},{k:"Usable fuel",v:"330",u:"L",d:"88 US gal"},{k:"Cruise 76%",v:"130",u:"KIAS",d:"22\" / 2400 RPM • 13.1 US gal/hr (~50 L/hr)"},{k:"Cruise 68%",v:"124",u:"KIAS",d:"21\" / 2300 RPM • 11.7 US gal/hr (~44 L/hr)"}
+ ],rows:[
+  ["US gal → litres","× 3.76 (as written in notes)"],["Fuel consumption @ 75% power","~13 US gal/hr"],["Fuel consumption @ 65% power","~11 US gal/hr"],["Approx endurance @ 75%","~6 hr 45 min"],["Approx endurance @ 65%","~8 hr"],["Oil capacity","12 qt max; 9 qt minimum"],["Performance source reminder","Consult POH Section 5 cruise performance tables"]]}
+};
+const KEY="c182r-checklist-state-v3", PTR="c182r-checklist-pointer-v3", INSTALL="c182r-install-dismissed-v1";
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");let active=0;let cockpit=false;let ptr=Number(localStorage.getItem(PTR)||0);let view="checklist";
+const $=s=>document.querySelector(s); const tabs=$("#tabs"),main=$("#main"),header=$("#header"),bottom=$("#bottom");
+function id(si,ii){return `${si}-${ii}`};function save(){localStorage.setItem(KEY,JSON.stringify(state));localStorage.setItem(PTR,String(ptr))}
+function allItems(){return checklistSections.flatMap((s,si)=>s.items.map((it,ii)=>({si,ii,it})).filter(x=>x.it[2]!=="separator"&&x.it[2]!=="heading")) }
+function done(si,ii){return !!state[id(si,ii)]} function sectionDone(si){return checklistSections[si].items.every((it,ii)=>it[2]==="separator"||it[2]==="heading"||done(si,ii))}
+function updateProgress(){const a=allItems(),n=a.filter(x=>done(x.si,x.ii)).length,p=Math.round(n/a.length*100);$("#pct").textContent=p+"%";$("#count").textContent=`${n} / ${a.length}`;$("#bar").style.width=p+"%"}
+function renderTabs(){tabs.innerHTML=""; if(view==="reference"){[["V-Speeds","speeds"],["Fuel / Perf","perf"]].forEach(([name,key],i)=>{let b=document.createElement("button");b.className="tab "+(active===i?"active":"");b.textContent=name;b.onclick=()=>{active=i;render()};tabs.appendChild(b)});return}
+ checklistSections.forEach((s,si)=>{let b=document.createElement("button");b.className="tab "+(si===active?"active ":"")+(sectionDone(si)?"done":"");b.textContent=(sectionDone(si)?"✓ ":"")+s.name;b.onclick=()=>{active=si;render(true)};tabs.appendChild(b)});requestAnimationFrame(()=>tabs.children[active]?.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"}))}
+function render(resetScroll=false){document.body.classList.toggle("cockpit",cockpit);header.classList.toggle("hidden",cockpit);bottom.classList.toggle("hidden",cockpit||view==="reference");$("#listBtn").classList.toggle("active",view==="checklist"&&!cockpit);$("#cockpitBtn").classList.toggle("active",cockpit);$("#refBtn").classList.toggle("active",view==="reference");if(cockpit){renderCockpit();return}renderTabs();updateProgress(); if(view==="reference")renderReference();else renderList();if(resetScroll)window.scrollTo({top:0,behavior:"smooth"})}
+function renderList(){const s=checklistSections[active];main.innerHTML=`<div class="sectionhead"><div class="sectionname">${s.name}</div><div class="sectionhelp">${s.help||""}</div></div>`;s.items.forEach((it,ii)=>{if(it[2]==="separator"){let sep=document.createElement("div");sep.style.cssText="height:1px;background:var(--line);margin:16px 6px";main.appendChild(sep);return}if(it[2]==="heading"){let h=document.createElement("div");h.className="scanheading";h.textContent=it[0]+(it[1]?": "+it[1]:"");main.appendChild(h);return}let r=document.createElement("div");r.className="row "+(done(active,ii)?"checked ":"")+(it[2]==="note"?"note":"");r.innerHTML=`<div class="label">${it[0]}</div><div class="value">${it[1]}</div><div class="tick">✓</div>`;r.onclick=()=>{const wasDone=done(active,ii);if(wasDone){state[id(active,ii)]=false;save();render();return}r.classList.add("checked","completing");if(navigator.vibrate)navigator.vibrate(18);setTimeout(()=>{state[id(active,ii)]=true;save();render()},220)};main.appendChild(r)});$("#prevBtn").disabled=active===0;$("#prevBtn").style.opacity=active===0?.45:1;$("#nextBtn").textContent=active===checklistSections.length-1?"Reset Checks":"Next →"}
+
+function formatVLabel(k){
+  if(!k || k[0] !== "V") return k;
+  const m = k.match(/^V([A-Za-z]+)(.*)$/);
+  if(!m) return k;
+  const suffix = m[1];
+  const rest = m[2] || "";
+  return `<span class="vsymbol"><span class="vbase">V</span><sub>${suffix.toLowerCase()}</sub>${rest}</span>`;
+}
+function bestLDChartHTML(){
+  return `<div class="card ldchart">
+    <div class="ldchart-title">${formatVLabel("Vbest L/D")} by aircraft weight</div>
+    <div class="ldchart-wrap">
+      <div class="ldcol">
+        <div class="ldspeed">70</div><div class="ldunit">KIAS</div>
+        <div class="ldbar low"></div><div class="ldweight">2000 lb</div>
+      </div>
+      <div class="ldcol">
+        <div class="ldspeed">73</div><div class="ldunit">KIAS</div>
+        <div class="ldbar mid"></div><div class="ldweight">2500 lb</div>
+      </div>
+      <div class="ldcol">
+        <div class="ldspeed">76</div><div class="ldunit">KIAS</div>
+        <div class="ldbar high"></div><div class="ldweight">2950 lb</div>
+      </div>
+    </div>
+    <div class="ldaxis"><span>Lighter</span><span class="arrow">→ Weight →</span><span>Max all-up</span></div>
+  </div>`;
+}
+function fuelCalculatorHTML(){
+  return `<div class="card fuelcalc">
+    <div class="fuelcalc-title">Fuel cross-check calculator</div>
+    <div class="fuelgrid">
+      <div class="fuelfield"><label>Garmin total fuel</label><input id="garminFuel" inputmode="decimal" type="number" step="0.1" placeholder="e.g. 180"></div>
+      <div class="fuelfield"><label>Left dipstick actual</label><input id="leftFuel" inputmode="decimal" type="number" step="0.1" placeholder="e.g. 88"></div>
+      <div class="fuelfield"><label>Right dipstick actual</label><input id="rightFuel" inputmode="decimal" type="number" step="0.1" placeholder="e.g. 90"></div>
+    </div>
+    <div class="fuelresult">
+      <div class="fuelstat"><div class="small">Dipstick total</div><div class="num" id="dipTotal">—</div></div>
+      <div class="fuelstat"><div class="small">Difference vs Garmin</div><div class="num" id="fuelDiff">—</div></div>
+    </div>
+    <div class="fuelcompare" id="fuelCompare">Enter readings to compare actual dipstick fuel with the Garmin total.</div>
+  </div>`;
+}
+function bindFuelCalculator(){
+  const g=$("#garminFuel"),l=$("#leftFuel"),r=$("#rightFuel");
+  if(!g||!l||!r)return;
+  const calc=()=>{
+    const gv=parseFloat(g.value), lv=parseFloat(l.value), rv=parseFloat(r.value);
+    const haveLR=Number.isFinite(lv)&&Number.isFinite(rv);
+    const total=haveLR?lv+rv:null;
+    $("#dipTotal").textContent=total===null?"—":total.toFixed(1);
+    if(total!==null && Number.isFinite(gv)){
+      const diff=total-gv;
+      $("#fuelDiff").textContent=(diff>0?"+":"")+diff.toFixed(1);
+      $("#fuelCompare").textContent=`Dipstick total is ${Math.abs(diff).toFixed(1)} ${diff>=0?"above":"below"} the Garmin computer reading.`;
+    }else{
+      $("#fuelDiff").textContent="—";
+      $("#fuelCompare").textContent="Enter readings to compare actual dipstick fuel with the Garmin total.";
+    }
+  };
+  [g,l,r].forEach(x=>x.addEventListener("input",calc));
+}
+
+function renderReference(){
+  const key=active===0?"speeds":"perf",r=references[key];
+  main.innerHTML=`<div class="sectionhead"><div class="sectionname">${r.title}</div><div class="sectionhelp">Quick reference from your handwritten aircraft notes.</div></div><div class="refgrid" id="cards"></div><div class="card wide" id="rows" style="margin-top:10px"></div><div class="warning">These figures are a transcription of your notes, including rounded/approximate values. Use the current aircraft-specific POH and placards as the controlling source.</div>`;
+  const c=$("#cards");
+  r.cards.forEach(x=>{
+    let e=document.createElement("div");
+    e.className="card";
+    e.innerHTML=`<div class="kicker">${formatVLabel(x.k)}</div><div class="big">${x.v} <span class="unit">${x.u}</span></div><div class="detail">${x.d}</div>`;
+    c.appendChild(e)
+  });
+  if(key==="speeds") c.insertAdjacentHTML("beforeend",bestLDChartHTML());
+  if(key==="perf"){
+    c.insertAdjacentHTML("beforeend",fuelCalculatorHTML());
+    bindFuelCalculator();
+  }
+  const rows=$("#rows");
+  r.rows.forEach(x=>rows.insertAdjacentHTML("beforeend",`<div class="refrow"><span>${formatVLabel(x[0])}</span><span>${x[1]}</span></div>`))
+}
+function startCockpit(){view="checklist";cockpit=true;let a=allItems(),first=a.findIndex(x=>!done(x.si,x.ii));ptr=first>=0?first:0;save();render()}
+function renderCockpit(){let a=allItems();ptr=Math.max(0,Math.min(ptr,a.length-1));let x=a[ptr],s=checklistSections[x.si],it=x.it,p=Math.round((ptr+1)/a.length*100);main.innerHTML=`<div class="cscreen"><div class="ctop"><button class="exit" id="exit">Exit</button><div class="cphase">${s.name}</div><div class="ccount">${ptr+1}/${a.length}</div></div><div class="cprog"><div class="cbar" style="width:${p}%"></div></div><div class="ccard"><div class="ctitle">${it[0]}</div><button class="cvalue" id="complete">${it[1]}</button></div><div class="cnav"><button id="cprev">← Back</button><button id="cnext">Skip →</button></div></div>`;$("#exit").onclick=()=>{cockpit=false;active=x.si;render()};$("#complete").onclick=()=>{const btn=$("#complete");btn.classList.add("completing");if(navigator.vibrate)navigator.vibrate(20);setTimeout(()=>{state[id(x.si,x.ii)]=true;ptr=Math.min(a.length-1,ptr+1);save();render()},230)};$("#cprev").onclick=()=>{ptr=Math.max(0,ptr-1);save();render()};$("#cnext").onclick=()=>{ptr=Math.min(a.length-1,ptr+1);save();render()}}
+$("#prevBtn").onclick=()=>{if(active>0){active--;render(true)}};$("#nextBtn").onclick=()=>{if(active<checklistSections.length-1){active++;render(true)}else if(confirm("Clear all checklist ticks and start again?")){state={};active=0;save();render(true)}};
+$("#listBtn").onclick=()=>{cockpit=false;view="checklist";active=Math.min(active,checklistSections.length-1);render(true)};$("#cockpitBtn").onclick=startCockpit;$("#refBtn").onclick=()=>{cockpit=false;view="reference";active=0;render(true)};
+$("#dismissInstall").onclick=()=>{$("#install").classList.remove("show");localStorage.setItem(INSTALL,"1")};
+const standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);if(isiOS&&!standalone&&!localStorage.getItem(INSTALL))setTimeout(()=>$("#install").classList.add("show"),900);
+render();
+
+function clearEntireChecklist(){
+  const confirmed = window.confirm("Clear all checklist ticks and reset to the first section?");
+  if(!confirmed) return;
+  state = {};
+  active = 0;
+  if(typeof itemPointer !== "undefined") itemPointer = 0;
+  if(typeof showReadyForFlightGate !== "undefined") showReadyForFlightGate = false;
+  localStorage.removeItem(KEY);
+  if(typeof PTR !== "undefined") localStorage.removeItem(PTR);
+  if(typeof saveState === "function") saveState();
+  if(navigator.vibrate) navigator.vibrate(35);
+  if(typeof render === "function") render({scrollTop:true});
+  else if(typeof renderAll === "function") renderAll();
+  else location.reload();
+}
+const clearAllBtn = document.getElementById("clearAllBtn");
+if(clearAllBtn) clearAllBtn.addEventListener("click", clearEntireChecklist);
+
+</script>
+</body></html>
